@@ -1,0 +1,41 @@
+@mixin topLeftZ($top, $left, $z) {
+    top: $top;
+    left: $left;
+    z-index: $z;
+}
+
+
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+.container{
+    min-height: 100vh;
+    position: relative;
+    .box{
+        height: 150px;
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+    }
+    .box:nth-child(1){
+        background-color: blue;
+        @include topLeftZ(20px, 120px, 2);
+    }
+    .box:nth-child(2){
+        background-color: yellow;
+        @include topLeftZ(30px, 220px, 4);
+    }
+    .box:nth-child(3){
+        background-color: red;
+        @include topLeftZ(140px, 210px, 2);
+    }
+    .box:nth-child(4){
+        background-color: palevioletred;
+        @include topLeftZ(120px, 110px, -1);
+    }
+}
